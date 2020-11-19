@@ -12,6 +12,7 @@ urlpatterns = [
     path('cteam', cteam, name='cteam'),
     path('myteam', myteam, name='myteam'),
     path('dteam', dteam, name='dteam'),
+    path('cmember', cmember, name='cmember'),
     url(r'^delete_event/(?P<pk>\d+)$', delete_event, name='delete_event'),
     url(r'^delete_team/(?P<pk>\d+)$', delete_team, name='delete_team'),
     url(r'^eteam/(?P<pk>\d+)$', eteam, name='eteam'),

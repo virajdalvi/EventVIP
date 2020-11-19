@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponse, request, request, request
 from django.contrib.auth.decorators import login_required
 from .models import Cevent
-from dashboard.models import Cteam
+from dashboard.models import Cmember, Cteam
 from accounts import models
 from .forms import CteamForm
 # Create your views here.
@@ -111,3 +111,10 @@ def eteam(request, pk):
     else:
         form = CteamForm(instance=teamse)
         return render(request, 'eteam.html', {'form': form, 'events': events, 'current_user': current_user, 'teams': teams})
+
+
+def cmember(request):
+    current_user = request.user
+    events = Cevent.objects.all()
+    teams = Cteam.objects.all()
+    return render(request, 'cmember.html', {'events': events, 'current_user': current_user, 'teams': teams})
