@@ -165,59 +165,68 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Events</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Members</h1>
 
                     </div>
                 </div>
+
                 <div class="container-fluid">
-                    <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">My Event</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">My Members</h6>
                         </div>
                         <div class="card-body">
-                            {% for event in events %}
-                            {% if event.user_id == current_user.id %}
-                            <div class="card">
-                                <div class="card-body">
-                                    <h2 class="card-title" style="color: black;">{{event.event_name}}</h2>
-                                    <h6>{{event.event_category}}</h6>
-                                    <h6>{{event.event_type}}</h6>
-                                    <i class="fas fa-calendar-day my-1" data-toggle="tooltip" data-placement="top"
-                                        title="Share this post"></i>
-                                    {{event.event_date}}
-                                    <i class="fas fa-clock my-1" data-toggle="tooltip" data-placement="top"
-                                        title="I like it"></i>
-                                    {{event.event_time}}
-                                    <br>
-                                    <br>
-                                    <p class="card-text">{{event.event_description}}</p>
-                                    <p class="mt-4">
-                                        <a class="btn btn-success" href="{{event.event_website}}">Event Website</a>
-                                    </p>
-                                </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Edit</th>
+                                            <th>Name</th>
+                                            <th>Event Name</th>
+                                            <th>Team name</th>
+                                            <th>Skills</th>
+                                            <th>Email Id</th>
+                                            <th>Contact No.</th>
+                                        </tr>
+                                    </thead>
+                                    {% for member in members %}
+                                    {% if member.user_id == current_user.id %}
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="{% url 'emember' member.pk %}" class="btn btn-warning btn-sm"
+                                                    role="button"><i class="fas fa-edit"></i></a>
+                                            </td>
+                                            <td>{{member.first_name}}{{' '}}{{member.last_name}}</td>
+                                            <td>{{member.event_name}}</td>
+                                            <td>{{member.team_name}}</td>
+                                            <td>{{member.skills}}</td>
+                                            <td>{{member.email_id}}</td>
+                                            <td>{{member.phone_number}}</td>
+                                        </tr>
+                                    </tbody>
+                                    {% endif %}
+                                    {% endfor %}
+                                </table>
                             </div>
-                            <br>
-                            {% endif %}
-                            {% endfor %}
                         </div>
                     </div>
+
                 </div>
-            </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright">
-                        <span>Copyright © EventVIP 2020</span>
+                <footer class=" bg-white sticky-footer">
+                    <div class="container my-auto">
+                        <div class="text-center my-auto copyright">
+                            <span>Copyright © EventVIP
+                                2020</span>
+                        </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
+            <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
         </div>
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="{% static 'js/theme.js' %}"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="{% static 'js/theme.js' %}"></script>
 </body>
 
 </html>

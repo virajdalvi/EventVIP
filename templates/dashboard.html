@@ -11,6 +11,7 @@
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
   <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css' %}" />
   <link rel="stylesheet" href="{% static 'bootstrap/css/stylecal.css' %}" />
+  <link rel="icon" href="{% static 'images/logo.svg' %}" type=" image/x-icon">
 </head>
 
 <body id="page-top">
@@ -18,10 +19,11 @@
     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
       <div class="container-fluid d-flex flex-column p-0">
         <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-          <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+          <div class="sidebar-brand-icon">
+            <i class="fas fa-star"></i>
+
           </div>
-          <div class="sidebar-brand-text mx-3"><span>Brand</span></div>
+          <div class="sidebar-brand-text mx-3"><span>EventVIP</span></div>
         </a>
         <hr class="sidebar-divider my-0" />
         <ul class="nav navbar-nav text-light" id="accordionSidebar">
@@ -30,7 +32,7 @@
 
           <!-- Nav Item - Dashboard -->
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></a>
           </li>
@@ -64,9 +66,9 @@
               data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Plan Your Teams</h6>
-                <a class="collapse-item" href="utilities-color.html">Create Teams</a>
-                <a class="collapse-item" href="utilities-border.html">Delete Teams</a>
-                <a class="collapse-item" href="utilities-animation.html">View Teams</a>
+                <a class="collapse-item" href="cteam">Create Teams</a>
+                <a class="collapse-item" href="dteam">Delete Teams</a>
+                <a class="collapse-item" href="myteam">View Teams</a>
               </div>
             </div>
           </li>
@@ -81,9 +83,9 @@
               data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage Members</h6>
-                <a class="collapse-item" href="utilities-color.html">Add Members</a>
-                <a class="collapse-item" href="utilities-border.html">Delete Members</a>
-                <a class="collapse-item" href="utilities-animation.html">View Members</a>
+                <a class="collapse-item" href="cmember">Add Members</a>
+                <a class="collapse-item" href="dmember">Delete Members</a>
+                <a class="collapse-item" href="mymember">View Members</a>
               </div>
             </div>
           </li>
@@ -98,10 +100,10 @@
               data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manage Your Tasks</h6>
-                <a class="collapse-item" href="utilities-color.html">Create Tasks</a>
-                <a class="collapse-item" href="utilities-border.html">Delete Tasks</a>
-                <a class="collapse-item" href="utilities-animation.html">Check Status</a>
-                <a class="collapse-item" href="utilities-animation.html">My Tasks</a>
+                <a class="collapse-item" href="ctask">Create Tasks</a>
+                <a class="collapse-item" href="dtask">Delete Tasks</a>
+                <a class="collapse-item" href="status">Check Status</a>
+                <a class="collapse-item" href="mytasks">My Tasks</a>
               </div>
             </div>
           </li>
@@ -116,29 +118,13 @@
               data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Promote Events</h6>
-                <a class="collapse-item" href="utilities-color.html">Create Promotion</a>
-                <a class="collapse-item" href="utilities-border.html">Delete Promotion</a>
+                <a class="collapse-item" href="events">Events</a>
               </div>
             </div>
           </li>
-          <!-- Nav Item - Utilities Collapse Menu -->
+
           <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities5"
-              aria-expanded="true" aria-controls="collapseUtilities5">
-              <i class="fas fa-rupee-sign"></i>
-              <span>Sponsorship</span>
-            </a>
-            <div id="collapseUtilities5" class="collapse" aria-labelledby="headingUtilities"
-              data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Get Sponsors</h6>
-                <a class="collapse-item" href="utilities-color.html">Find Sponsors</a>
-                <a class="collapse-item" href="utilities-border.html">My Sponsors List</a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="tables.html">
+            <a class="nav-link" href="logout">
               <i class="fas fa-sign-out-alt"></i>
               <span>Logout</span></a>
           </li>
@@ -148,169 +134,26 @@
         </div>
       </div>
     </nav>
+
     <div class="d-flex flex-column" id="content-wrapper">
       <div id="content">
         <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
           <div class="container-fluid">
-            <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button">
-              <i class="fas fa-bars"></i>
-            </button>
-            <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-              <div class="input-group">
-                <input class="bg-light form-control border-0 small" type="text" placeholder="Search for ..." />
-                <div class="input-group-append">
-                  <button class="btn btn-primary py-0" type="button">
-                    <i class="fas fa-search"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
+            <div class="float-left">
+              <h4 class="mt-4">
+                Hey, {{user.first_name}}{{' '}}{{user.last_name}}
+              </h4>
+            </div>
             <ul class="nav navbar-nav flex-nowrap ml-auto">
-              <li class="nav-item dropdown d-sm-none no-arrow">
-                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i
-                    class="fas fa-search"></i></a>
-                <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" aria-labelledby="searchDropdown">
-                  <form class="form-inline mr-auto navbar-search w-100">
-                    <div class="input-group">
-                      <input class="bg-light form-control border-0 small" type="text" placeholder="Search for ..." />
-                      <div class="input-group-append">
-                        <button class="btn btn-primary py-0" type="button">
-                          <i class="fas fa-search"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </li>
-              <li class="nav-item dropdown no-arrow mx-1">
-                <div class="nav-item dropdown no-arrow">
-                  <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span
-                      class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
-                    <h6 class="dropdown-header">alerts center</h6>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                      <div class="mr-3">
-                        <div class="bg-primary icon-circle">
-                          <i class="fas fa-file-alt text-white"></i>
-                        </div>
-                      </div>
-                      <div>
-                        <span class="small text-gray-500">December 12, 2019</span>
-                      </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                      <div class="mr-3">
-                        <div class="bg-success icon-circle">
-                          <i class="fas fa-donate text-white"></i>
-                        </div>
-                      </div>
-                      <div>
-                        <span class="small text-gray-500">December 7, 2019</span>
-                        <p>$290.29 has been deposited into your account!</p>
-                      </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                      <div class="mr-3">
-                        <div class="bg-warning icon-circle">
-                          <i class="fas fa-exclamation-triangle text-white"></i>
-                        </div>
-                      </div>
-                      <div>
-                        <span class="small text-gray-500">December 2, 2019</span>
-                        <p>
-                          Spending Alert: We've noticed unusually high
-                          spending for your account.
-                        </p>
-                      </div>
-                    </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-item dropdown no-arrow mx-1">
-                <div class="nav-item dropdown no-arrow">
-                  <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i
-                      class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
-                  <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
-                    <h6 class="dropdown-header">alerts center</h6>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                      <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="{% static 'img/avatars/avatar4.jpeg' %}" />
-                        <div class="bg-success status-indicator"></div>
-                      </div>
-                      <div class="font-weight-bold">
-                        <div class="text-truncate">
-                          <span>Hi there! I am wondering if you can help me with
-                            a problem I've been having.</span>
-                        </div>
-                        <p class="small text-gray-500 mb-0">
-                          Emily Fowler - 58m
-                        </p>
-                      </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                      <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="assets/img/avatars/avatar2.jpeg" />
-                        <div class="status-indicator"></div>
-                      </div>
-                      <div class="font-weight-bold">
-                        <div class="text-truncate">
-                          <span>I have the photos that you ordered last
-                            month!</span>
-                        </div>
-                        <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
-                      </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                      <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="assets/img/avatars/avatar3.jpeg" />
-                        <div class="bg-warning status-indicator"></div>
-                      </div>
-                      <div class="font-weight-bold">
-                        <div class="text-truncate">
-                          <span>Last month's report looks great, I am very happy
-                            with the progress so far, keep up the good
-                            work!</span>
-                        </div>
-                        <p class="small text-gray-500 mb-0">
-                          Morgan Alvarez - 2d
-                        </p>
-                      </div>
-                    </a>
-                    <a class="d-flex align-items-center dropdown-item" href="#">
-                      <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="assets/img/avatars/avatar5.jpeg" />
-                        <div class="bg-success status-indicator"></div>
-                      </div>
-                      <div class="font-weight-bold">
-                        <div class="text-truncate">
-                          <span>Am I a good boy? The reason I ask is because
-                            someone told me that people say this to all dogs,
-                            even if they aren't good...</span>
-                        </div>
-                        <p class="small text-gray-500 mb-0">
-                          Chicken the Dog · 2w
-                        </p>
-                      </div>
-                    </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a>
-                  </div>
-                </div>
-                <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-                </div>
-              </li>
               <div class="d-none d-sm-block topbar-divider"></div>
               <li class="nav-item dropdown no-arrow">
                 <div class="nav-item dropdown no-arrow">
                   <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span
-                      class="d-none d-lg-inline mr-2 text-gray-600 small">Viraj Dalvi</span><img
-                      class="border rounded-circle img-profile" src="{% static 'img/avatars/avatar1.jpeg' %}" /></a>
+                      class="d-none d-lg-inline mr-2 text-gray-600 small">{{user.username}}</span><i
+                      class="fas fa-user rounded-circle" style="color: black;"></i></a>
                   <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
-                    <a class="dropdown-item" href="#"><i
-                        class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item"
-                      href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
-                    <a class="dropdown-item" href="#"><i
-                        class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i
+
+                    <a class="dropdown-item" href="logout"><i
                         class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                   </div>
                 </div>
@@ -322,8 +165,6 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Download My Data</a>
           </div>
           <!-- Content Row -->
           <div class="row">
@@ -334,160 +175,127 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Event Starts In</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Events</div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        <p id="demo" class="h5 mb-0 font-weight-bold text-gray-800"></p>
+                        <p class="h5 mb-0 font-weight-bold text-gray-800">{{counts.dtevent}} <small>events</small></p>
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-stopwatch fa-2x text-gray-300"></i>
+                      <i class="fas fa-calendar-check fa-2x text-gray-300""></i>
+                      
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Budget (Remaining)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">₹ 15,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-rupee-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class=" col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                          <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks Completed
+                                </div>
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                      {{counts.ttask}}<small>
+                                        tasks
+                                      </small></div>
+                                  </div>
 
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks Completed</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                </div>
+                              </div>
+                              <div class="col-auto">
+                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
-                              aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Teams</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">{{counts.tcount}}<small>
+                                  teams
+                                </small></div>
+                            </div>
+                            <div class="col-auto">
+                              <i class="fas fa-users fa-2x text-gray-300"></i>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <!-- Pending Requests Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Coordinators
+                              </div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">
 
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Team Members</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-user fa-2x text-gray-300"></i></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <!-- Content Row -->
-          <div class="row">
-            <!-- To Do App -->
-            <div class="col-xl-6 col-md-12 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">To do list</div>
-                      <div class="todolist not-done">
-                        <h1>Todos</h1>
-                        <input type="text" class="form-control add-todo" placeholder="Add todo">
-                        <br>
-                        <button id="checkAll" class="btn btn-success">Mark all as done</button>
-
-                        <hr>
-                        <ul id="sortable" class="list-unstyled">
-                          <li class="ui-state-default">
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox" value="" />Take out the trash</label>
+                                {{counts.mcount}}<small>
+                                  coordinators
+                                </small>
+                              </div>
                             </div>
-                          </li>
-                          <li class="ui-state-default">
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox" value="" />Buy bread</label>
+                            <div class="col-auto">
+                              <i class="fas fa-user fa-2x text-gray-300"></i></i>
                             </div>
-                          </li>
-                          <li class="ui-state-default">
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox" value="" />Teach penguins to fly</label>
-                            </div>
-                          </li>
-                        </ul>
-                        <div class="todo-footer">
-                          <strong><span class="count-todos"></span></strong> Items Left
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="d-none d-sm-block col-xl-6 col-md-12 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Calculator</div>
-                      <div class="well">
-                        <div id="calculator">
-                          <!-- Screen and clear key -->
-                          <div class="top">
-                            <span class="clear">C</span>
-                            <div class="screen"></div>
-                          </div>
+                <div class="container-fluid">
+                  <!-- Content Row -->
+                  <div class="row">
 
-                          <div class="keys">
-                            <!-- operators and other keys -->
-                            <span>7</span>
-                            <span>8</span>
-                            <span>9</span>
-                            <span class="operator">+</span>
-                            <span>4</span>
-                            <span>5</span>
-                            <span>6</span>
-                            <span class="operator">-</span>
-                            <span>1</span>
-                            <span>2</span>
-                            <span>3</span>
-                            <span class="operator">÷</span>
-                            <span>0</span>
-                            <span>.</span>
-                            <span class="eval">=</span>
-                            <span class="operator">x</span>
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="d-none d-sm-block col-xl-12 col-md-12 mb-4">
+                      <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Calculator</div>
+                              <div class="well">
+                                <div id="calculator">
+                                  <!-- Screen and clear key -->
+                                  <div class="top">
+                                    <span class="clear">C</span>
+                                    <div class="screen"></div>
+                                  </div>
+
+                                  <div class="keys">
+                                    <!-- operators and other keys -->
+                                    <span>7</span>
+                                    <span>8</span>
+                                    <span>9</span>
+                                    <span class="operator">+</span>
+                                    <span>4</span>
+                                    <span>5</span>
+                                    <span>6</span>
+                                    <span class="operator">-</span>
+                                    <span>1</span>
+                                    <span>2</span>
+                                    <span>3</span>
+                                    <span class="operator">÷</span>
+                                    <span>0</span>
+                                    <span>.</span>
+                                    <span class="eval">=</span>
+                                    <span class="operator">x</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -495,224 +303,220 @@
                   </div>
                 </div>
               </div>
+              <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                  <div class="text-center my-auto copyright">
+                    <span>Copyright © EventVIP 2020</span>
+                  </div>
+                </div>
+              </footer>
             </div>
+            <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
           </div>
-        </div>
-      </div>
-      <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-          <div class="text-center my-auto copyright">
-            <span>Copyright © Brand 2020</span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-  </div>
-  <script src="{% static 'js/jquery.min.js' %}"></script>
-  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-  <script src="{% static 'js/theme.js' %}"></script>
-  <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Jan 8, 2021 15:37:25").getTime();
+          <script src="{% static 'js/jquery.min.js' %}"></script>
+          <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+          <script src="{% static 'js/theme.js' %}"></script>
+          <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Jan 8, 2021 15:37:25").getTime();
 
-    // Update the count down every 1 second
-    var x = setInterval(function () {
+            // Update the count down every 1 second
+            var x = setInterval(function () {
 
-      // Get today's date and time
-      var now = new Date().getTime();
+              // Get today's date and time
+              var now = new Date().getTime();
 
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
+              // Find the distance between now and the count down date
+              var distance = countDownDate - now;
 
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              // Time calculations for days, hours, minutes and seconds
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-      // Display the result in the element with id="demo"
-      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        + minutes + "m ";
+              // Display the result in the element with id="demo"
+              document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m ";
 
-      // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-  </script>
-  <!--Calculator script-->
-  <script>
-    // Get all the keys from document
-    var keys = document.querySelectorAll('#calculator span');
-    var operators = ['+', '-', 'x', '÷'];
-    var decimalAdded = false;
+              // If the count down is finished, write some text
+              if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+              }
+            }, 1000);
+          </script>
+          <!--Calculator script-->
+          <script>
+            // Get all the keys from document
+            var keys = document.querySelectorAll('#calculator span');
+            var operators = ['+', '-', 'x', '÷'];
+            var decimalAdded = false;
 
-    // Add onclick event to all the keys and perform operations
-    for (var i = 0; i < keys.length; i++) {
-      keys[i].onclick = function (e) {
-        // Get the input and button values
-        var input = document.querySelector('.screen');
-        var inputVal = input.innerHTML;
-        var btnVal = this.innerHTML;
+            // Add onclick event to all the keys and perform operations
+            for (var i = 0; i < keys.length; i++) {
+              keys[i].onclick = function (e) {
+                // Get the input and button values
+                var input = document.querySelector('.screen');
+                var inputVal = input.innerHTML;
+                var btnVal = this.innerHTML;
 
-        // Now, just append the key values (btnValue) to the input string and finally use javascript's eval function to get the result
-        // If clear key is pressed, erase everything
-        if (btnVal == 'C') {
-          input.innerHTML = '';
-          decimalAdded = false;
-        }
+                // Now, just append the key values (btnValue) to the input string and finally use javascript's eval function to get the result
+                // If clear key is pressed, erase everything
+                if (btnVal == 'C') {
+                  input.innerHTML = '';
+                  decimalAdded = false;
+                }
 
-        // If eval key is pressed, calculate and display the result
-        else if (btnVal == '=') {
-          var equation = inputVal;
-          var lastChar = equation[equation.length - 1];
+                // If eval key is pressed, calculate and display the result
+                else if (btnVal == '=') {
+                  var equation = inputVal;
+                  var lastChar = equation[equation.length - 1];
 
-          // Replace all instances of x and ÷ with * and / respectively. This can be done easily using regex and the 'g' tag which will replace all instances of the matched character/substring
-          equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
+                  // Replace all instances of x and ÷ with * and / respectively. This can be done easily using regex and the 'g' tag which will replace all instances of the matched character/substring
+                  equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
 
-          // Final thing left to do is checking the last character of the equation. If it's an operator or a decimal, remove it
-          if (operators.indexOf(lastChar) > -1 || lastChar == '.')
-            equation = equation.replace(/.$/, '');
+                  // Final thing left to do is checking the last character of the equation. If it's an operator or a decimal, remove it
+                  if (operators.indexOf(lastChar) > -1 || lastChar == '.')
+                    equation = equation.replace(/.$/, '');
 
-          if (equation)
-            input.innerHTML = eval(equation);
+                  if (equation)
+                    input.innerHTML = eval(equation);
 
-          decimalAdded = false;
-        }
+                  decimalAdded = false;
+                }
 
-        // Basic functionality of the calculator is complete. But there are some problems like 
-        // 1. No two operators should be added consecutively.
-        // 2. The equation shouldn't start from an operator except minus
-        // 3. not more than 1 decimal should be there in a number
+                // Basic functionality of the calculator is complete. But there are some problems like 
+                // 1. No two operators should be added consecutively.
+                // 2. The equation shouldn't start from an operator except minus
+                // 3. not more than 1 decimal should be there in a number
 
-        // We'll fix these issues using some simple checks
+                // We'll fix these issues using some simple checks
 
-        // indexOf works only in IE9+
-        else if (operators.indexOf(btnVal) > -1) {
-          // Operator is clicked
-          // Get the last character from the equation
-          var lastChar = inputVal[inputVal.length - 1];
+                // indexOf works only in IE9+
+                else if (operators.indexOf(btnVal) > -1) {
+                  // Operator is clicked
+                  // Get the last character from the equation
+                  var lastChar = inputVal[inputVal.length - 1];
 
-          // Only add operator if input is not empty and there is no operator at the last
-          if (inputVal != '' && operators.indexOf(lastChar) == -1)
-            input.innerHTML += btnVal;
+                  // Only add operator if input is not empty and there is no operator at the last
+                  if (inputVal != '' && operators.indexOf(lastChar) == -1)
+                    input.innerHTML += btnVal;
 
-          // Allow minus if the string is empty
-          else if (inputVal == '' && btnVal == '-')
-            input.innerHTML += btnVal;
+                  // Allow minus if the string is empty
+                  else if (inputVal == '' && btnVal == '-')
+                    input.innerHTML += btnVal;
 
-          // Replace the last operator (if exists) with the newly pressed operator
-          if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
-            // Here, '.' matches any character while $ denotes the end of string, so anything (will be an operator in this case) at the end of string will get replaced by new operator
-            input.innerHTML = inputVal.replace(/.$/, btnVal);
-          }
+                  // Replace the last operator (if exists) with the newly pressed operator
+                  if (operators.indexOf(lastChar) > -1 && inputVal.length > 1) {
+                    // Here, '.' matches any character while $ denotes the end of string, so anything (will be an operator in this case) at the end of string will get replaced by new operator
+                    input.innerHTML = inputVal.replace(/.$/, btnVal);
+                  }
 
-          decimalAdded = false;
-        }
+                  decimalAdded = false;
+                }
 
-        // Now only the decimal problem is left. We can solve it easily using a flag 'decimalAdded' which we'll set once the decimal is added and prevent more decimals to be added once it's set. It will be reset when an operator, eval or clear key is pressed.
-        else if (btnVal == '.') {
-          if (!decimalAdded) {
-            input.innerHTML += btnVal;
-            decimalAdded = true;
-          }
-        }
+                // Now only the decimal problem is left. We can solve it easily using a flag 'decimalAdded' which we'll set once the decimal is added and prevent more decimals to be added once it's set. It will be reset when an operator, eval or clear key is pressed.
+                else if (btnVal == '.') {
+                  if (!decimalAdded) {
+                    input.innerHTML += btnVal;
+                    decimalAdded = true;
+                  }
+                }
 
-        // if any other key is pressed, just append it
-        else {
-          input.innerHTML += btnVal;
-        }
+                // if any other key is pressed, just append it
+                else {
+                  input.innerHTML += btnVal;
+                }
 
-        // prevent page jumps
-        e.preventDefault();
-      }
-    }
-  </script>
-  <script>
-    $("#sortable").sortable();
-    $("#sortable").disableSelection();
+                // prevent page jumps
+                e.preventDefault();
+              }
+            }
+          </script>
+          <script>
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
 
-    countTodos();
+            countTodos();
 
-    // all done btn
-    $("#checkAll").click(function () {
-      AllDone();
-    });
+            // all done btn
+            $("#checkAll").click(function () {
+              AllDone();
+            });
 
 
-    $('.add-todo').on('keypress', function (e) {
-      e.preventDefault
-      if (e.which == 13) {
-        if ($(this).val() != '') {
-          var todo = $(this).val();
-          createTodo(todo);
-          countTodos();
-        } else {
-          // some validation
-        }
-      }
-    });
-    // mark task as done
-    $('.todolist').on('change', '#sortable li input[type="checkbox"]', function () {
-      if ($(this).prop('checked')) {
-        var doneItem = $(this).parent().parent().find('label').text();
-        $(this).parent().parent().parent().addClass('remove');
-        done(doneItem);
-        countTodos();
-      }
-    });
+            $('.add-todo').on('keypress', function (e) {
+              e.preventDefault
+              if (e.which == 13) {
+                if ($(this).val() != '') {
+                  var todo = $(this).val();
+                  createTodo(todo);
+                  countTodos();
+                } else {
+                  // some validation
+                }
+              }
+            });
+            // mark task as done
+            $('.todolist').on('change', '#sortable li input[type="checkbox"]', function () {
+              if ($(this).prop('checked')) {
+                var doneItem = $(this).parent().parent().find('label').text();
+                $(this).parent().parent().parent().addClass('remove');
+                done(doneItem);
+                countTodos();
+              }
+            });
 
-    //delete done task from "already done"
-    $('.todolist').on('click', '.remove-item', function () {
-      removeItem(this);
-    });
+            //delete done task from "already done"
+            $('.todolist').on('click', '.remove-item', function () {
+              removeItem(this);
+            });
 
-    // count tasks
-    function countTodos() {
-      var count = $("#sortable li").length;
-      $('.count-todos').html(count);
-    }
+            // count tasks
+            function countTodos() {
+              var count = $("#sortable li").length;
+              $('.count-todos').html(count);
+            }
 
-    //create task
-    function createTodo(text) {
-      var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />' + text + '</label></div></li>';
-      $('#sortable').append(markup);
-      $('.add-todo').val('');
-    }
+            //create task
+            function createTodo(text) {
+              var markup = '<li class="ui-state-default"><div class="checkbox"><label><input type="checkbox" value="" />' + text + '</label></div></li>';
+              $('#sortable').append(markup);
+              $('.add-todo').val('');
+            }
 
-    //mark task as done
-    function done(doneItem) {
-      var done = doneItem;
-      var markup = '<li>' + done + '<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
-      $('#done-items').append(markup);
-      $('.remove').remove();
-    }
+            //mark task as done
+            function done(doneItem) {
+              var done = doneItem;
+              var markup = '<li>' + done + '<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>';
+              $('#done-items').append(markup);
+              $('.remove').remove();
+            }
 
-    //mark all tasks as done
-    function AllDone() {
-      var myArray = [];
+            //mark all tasks as done
+            function AllDone() {
+              var myArray = [];
 
-      $('#sortable li').each(function () {
-        myArray.push($(this).text());
-      });
+              $('#sortable li').each(function () {
+                myArray.push($(this).text());
+              });
 
-      // add to done
-      for (i = 0; i < myArray.length; i++) {
-        $('#done-items').append('<li>' + myArray[i] + '<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>');
-      }
+              // add to done
+              for (i = 0; i < myArray.length; i++) {
+                $('#done-items').append('<li>' + myArray[i] + '<button class="btn btn-default btn-xs pull-right  remove-item"><span class="glyphicon glyphicon-remove"></span></button></li>');
+              }
 
-      // myArray
-      $('#sortable li').remove();
-      countTodos();
-    }
+              // myArray
+              $('#sortable li').remove();
+              countTodos();
+            }
 
-    //remove done task from list
-    function removeItem(element) {
-      $(element).parent().remove();
-    }
-  </script>
+            //remove done task from list
+            function removeItem(element) {
+              $(element).parent().remove();
+            }
+          </script>
 </body>
 <style>
   /*Todo Style*/

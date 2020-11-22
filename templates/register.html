@@ -1,111 +1,121 @@
 {% load static %}
 {% static "images" as baseUrl %}
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Event Manager-Signup
-        </title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <!-- CSS only -->
-        <link rel="stylesheet" href="{% static 'style.css' %}" rel="text/css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-        <!-- JS, Popper.js, and jQuery -->
-        <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    
-        <!-- Google Fonts-->
-    </head>
-    <body>
-        <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-            <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                    id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <br><br><br><br><br>
-        <form action='register' method='post'>
-          {% csrf_token %}
-        <section class="block-Signup">
-            <div class="container">
-              
-              <div class="row">
-                <div class="col-12 col-md-6 m-md-auto ml-lg-0 col-lg-5">
-                  <img alt="image" class="img-fluid" src="{% static 'images/4.svg' %}">
-                </div>
-                <div class="col-12 col-md-10 col-lg-6 mt-4 mt-lg-0 ml-auto mr-auto ml-lg-auto text-left">
-                  <div class="row">
-                    <div class="col">
-                      <h1>Sign Up</h1>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col mt-4">
-                      {% if messages %}
+<head>
+  <title>
+    Event Manager-Signup
+  </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <!-- CSS only -->
+  <link rel="stylesheet" href="{% static 'style.css' %}" rel="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    {% for message in messages %}
-    <div class="alert alert-danger" role="alert">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  {{message}}
-</div>
-    {% endfor %}
-{% endif %}
-                      
-                    </div>
-                  </div>
-                  <div class="row align-items-center mt-4">
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="Fist Name" name="first_name">
-                    </div>
-                    <div class="col">
-                      <input type="text" class="form-control" placeholder="Last Name" name="last_name">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col mt-4">
-                      <input type="text" class="form-control" placeholder="Username" name="username">
-                    </div>
-                  </div>
-                  <div class="row mt-4">
-                    <div class="col">
-                      <input type="email" class="form-control" placeholder="Email" name="email">
-                    </div>
-                  </div>
-                  <div class="row align-items-center mt-4">
-                  <div class="col">
-                    <input type="password" class="form-control" placeholder="Password" name="password1">
-                  </div>
-                  <div class="col">
-                    <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
-                  </div>
-                </div>
-                  
-                  <div class="row mt-4">
-                    <div class="col">
-                      <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                  </div>
-                </div>
-                </div>
+  <!-- JS, Popper.js, and jQuery -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+  <!-- Google Fonts-->
+</head>
+
+<body>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container"><a class="navbar-brand logo" href="/">EventVIP</a><button data-toggle="collapse"
+        class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dashboard">Leader</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard/cdashboard">Co-ordinator</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br><br><br><br><br>
+  <form action='register' method='post'>
+    {% csrf_token %}
+    <section class="block-Signup">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-12 col-md-6 m-md-auto ml-lg-0 col-lg-5">
+            <img alt="image" class="img-fluid" src="{% static 'images/4.svg' %}">
+          </div>
+          <div class="col-12 col-md-10 col-lg-6 mt-4 mt-lg-0 ml-auto mr-auto ml-lg-auto text-left">
+            <div class="row">
+              <div class="col">
+                <h1>Sign Up</h1>
               </div>
             </div>
-          </section>
-          </form>
-    </body>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-    </style>
+            <div class="row">
+              <div class="col mt-4">
+                {% if messages %}
+
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+
+              </div>
+            </div>
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Fist Name" name="first_name">
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Last Name" name="last_name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col mt-4">
+                <input type="text" class="form-control" placeholder="Username" name="username">
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col">
+                <input type="email" class="form-control" placeholder="Email" name="email">
+              </div>
+            </div>
+            <div class="row align-items-center mt-4">
+              <div class="col">
+                <input type="password" class="form-control" placeholder="Password" name="password1">
+              </div>
+              <div class="col">
+                <input type="password" class="form-control" placeholder="Confirm Password" name="password2">
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col">
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+  </form>
+</body>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+</style>
+
 </html>

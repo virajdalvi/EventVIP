@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/stylecal.css' %}" />
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <div class="container-fluid">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">
+                                <h2>Events in the city</h2>
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <h3 style="color: blue;">
+                                Educational Events
+                            </h3>
+                            {% for event in events %}
+                            {% if event.event_category == 'Educational' %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="card-title" style="color: black;">{{event.event_name}}</h2>
+                                    <h6>{{event.event_category}}</h6>
+                                    <h6>{{event.event_type}}</h6>
+                                    <i class="fas fa-calendar-day my-1" data-toggle="tooltip" data-placement="top"
+                                        title="Share this post"></i>
+                                    {{event.event_date}}
+                                    <i class="fas fa-clock my-1" data-toggle="tooltip" data-placement="top"
+                                        title="I like it"></i>
+                                    {{event.event_time}}
+                                    <br>
+                                    <br>
+                                    <p class="card-text">{{event.event_description}}</p>
+                                    <p class="mt-4">
+                                        <a class="btn btn-success" href="">Event Website</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                            {% endif %}
+                            {% endfor %}
+                            <br>
+                            <h3 style="color: blue;">
+                                Celebration
+                            </h3>
+                            {% for event in events %}
+                            {% if event.event_category == 'Celebration' %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="card-title" style="color: black;">{{event.event_name}}</h2>
+                                    <h6>{{event.event_category}}</h6>
+                                    <h6>{{event.event_type}}</h6>
+                                    <i class="fas fa-calendar-day my-1" data-toggle="tooltip" data-placement="top"
+                                        title="Share this post"></i>
+                                    {{event.event_date}}
+                                    <i class="fas fa-clock my-1" data-toggle="tooltip" data-placement="top"
+                                        title="I like it"></i>
+                                    {{event.event_time}}
+                                    <br>
+                                    <br>
+                                    <p class="card-text">{{event.event_description}}</p>
+                                    <p class="mt-4">
+                                        <a class="btn btn-success" href="{{event.event_website}}">Event Website</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                            {% endif %}
+                            {% endfor %}
+                            <br>
+                            <h3 style="color: blue;">
+                                Sports Event
+                            </h3>
+                            {% for event in events %}
+                            {% if event.event_category == 'Sports Event' %}
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="card-title" style="color: black;">{{event.event_name}}</h2>
+                                    <h6>{{event.event_category}}</h6>
+                                    <h6>{{event.event_type}}</h6>
+                                    <i class="fas fa-calendar-day my-1" data-toggle="tooltip" data-placement="top"
+                                        title="Share this post"></i>
+                                    {{event.event_date}}
+                                    <i class="fas fa-clock my-1" data-toggle="tooltip" data-placement="top"
+                                        title="I like it"></i>
+                                    {{event.event_time}}
+                                    <br>
+                                    <br>
+                                    <p class="card-text">{{event.event_description}}</p>
+                                    <p class="mt-4">
+                                        <a class="btn btn-success" href="">Event Website</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <br>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright">
+                        <span>Copyright © EventVIP 2020</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+</body>
+
+</html>

@@ -49,9 +49,9 @@
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Event</h6>
-                                <a class="collapse-item" href="cevent">Create Event</a>
-                                <a class="collapse-item" href="devent">Delete Event</a>
-                                <a class="collapse-item" href="myevent">My Events</a>
+                                <a class="collapse-item" href="/dashboard/cevent">Create Event</a>
+                                <a class="collapse-item" href="/dashboard/devent">Delete Event</a>
+                                <a class="collapse-item" href="/dashboard/myevent">My Events</a>
                             </div>
                         </div>
                     </li>
@@ -66,9 +66,9 @@
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Plan Your Teams</h6>
-                                <a class="collapse-item" href="cteam">Create Teams</a>
-                                <a class="collapse-item" href="dteam">Delete Teams</a>
-                                <a class="collapse-item" href="myteam">View Teams</a>
+                                <a class="collapse-item" href="/dashboard/cteam">Create Teams</a>
+                                <a class="collapse-item" href="/dashboard/dteam">Delete Teams</a>
+                                <a class="collapse-item" href="/dashboard/myteam">View Teams</a>
                             </div>
                         </div>
                     </li>
@@ -83,9 +83,9 @@
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Manage Members</h6>
-                                <a class="collapse-item" href="cmember">Add Members</a>
-                                <a class="collapse-item" href="dmember">Delete Members</a>
-                                <a class="collapse-item" href="mymember">View Members</a>
+                                <a class="collapse-item" href="/dashboard/cmember">Add Members</a>
+                                <a class="collapse-item" href="/dashboard/dmember">Delete Members</a>
+                                <a class="collapse-item" href="/dashboard/mymember">View Members</a>
                             </div>
                         </div>
                     </li>
@@ -100,10 +100,10 @@
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Manage Your Tasks</h6>
-                                <a class="collapse-item" href="ctask">Create Tasks</a>
-                                <a class="collapse-item" href="dtask">Delete Tasks</a>
-                                <a class="collapse-item" href="status">Check Status</a>
-                                <a class="collapse-item" href="mytasks">My Tasks</a>
+                                <a class="collapse-item" href="/dashboard/ctask">Create Tasks</a>
+                                <a class="collapse-item" href="/dashboard/dtask">Delete Tasks</a>
+                                <a class="collapse-item" href="/dashboard/status">Check Status</a>
+                                <a class="collapse-item" href="/dashboard/mytasks">My Tasks</a>
                             </div>
                         </div>
                     </li>
@@ -118,13 +118,13 @@
                             data-parent="#accordionSidebar">
                             <div class="bg-white py-2 collapse-inner rounded">
                                 <h6 class="collapse-header">Promote Events</h6>
-                                <a class="collapse-item" href="events">Events</a>
+                                <a class="collapse-item" href="/dashboard/events">Events</a>
                             </div>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="logout">
+                        <a class="nav-link" href="/dashboard/logout">
                             <i class="fas fa-sign-out-alt"></i>
                             <span>Logout</span></a>
                     </li>
@@ -165,7 +165,7 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Events</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tasks</h1>
 
                     </div>
                 </div>
@@ -173,51 +173,50 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">My Event</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Edit Tasks</h6>
                         </div>
                         <div class="card-body">
-                            {% for event in events %}
-                            {% if event.user_id == current_user.id %}
-                            <div class="card">
-                                <div class="card-body">
-                                    <h2 class="card-title" style="color: black;">{{event.event_name}}</h2>
-                                    <h6>{{event.event_category}}</h6>
-                                    <h6>{{event.event_type}}</h6>
-                                    <i class="fas fa-calendar-day my-1" data-toggle="tooltip" data-placement="top"
-                                        title="Share this post"></i>
-                                    {{event.event_date}}
-                                    <i class="fas fa-clock my-1" data-toggle="tooltip" data-placement="top"
-                                        title="I like it"></i>
-                                    {{event.event_time}}
-                                    <br>
-                                    <br>
-                                    <p class="card-text">{{event.event_description}}</p>
-                                    <p class="mt-4">
-                                        <a class="btn btn-success" href="{{event.event_website}}">Event Website</a>
-                                    </p>
-                                </div>
+                            <div class="container">
+                                <form method="POST">
+                                    {% csrf_token %}
+
+                                    {% for field in form %}
+                                    <div class="form-group row">
+                                        <label for="id_{{ field.name }}"
+                                            class="col-2 col-form-label ml-4">{{ field.label }}</label>
+
+                                        <div class="col">
+                                            {{ field }}
+                                        </div>
+                                    </div>
+
+
+                                    {% endfor %}
+
+                                    <div class="form-group row">
+                                        <div class="offset-sm-2 col-sm-6 mx-10">
+                                            <button type="submit" class="btn btn-primary">Edit Task</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <br>
-                            {% endif %}
-                            {% endfor %}
                         </div>
                     </div>
                 </div>
-            </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright">
-                        <span>Copyright © EventVIP 2020</span>
+                <footer class=" bg-white sticky-footer">
+                    <div class="container my-auto">
+                        <div class="text-center my-auto copyright">
+                            <span>Copyright © EventVIP 2020</span>
+                        </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
+            <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
         </div>
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="{% static 'js/theme.js' %}"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="{% static 'js/theme.js' %}"></script>
 </body>
 
 </html>

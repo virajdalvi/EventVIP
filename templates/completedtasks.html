@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Co-ordinator Dashboard</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/stylecal.css' %}" />
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3"><span>EventVIP</span></div>
+                </a>
+                <hr class="sidebar-divider my-0" />
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <!-- Divider -->
+                    <hr class="sidebar-divider my-0">
+
+                    <!-- Nav Item - Dashboard -->
+                    <li class="nav-item active">
+                        <a class="nav-link" href="cdashboard">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Dashboard</span></a>
+                    </li>
+
+                    <!-- Divider -->
+                    <hr class="sidebar-divider">
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
+                            aria-expanded="true" aria-controls="collapseUtilities3">
+                            <i class="fas fa-tasks"></i>
+                            <span>Tasks</span>
+                        </a>
+                        <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities"
+                            data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Manage Your Tasks</h6>
+                                <a class="collapse-item" href="cdashboard">My Tasks</a>
+                                <a class="collapse-item" href="completedtasks">Completed Tasks</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="clogout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span></a>
+                    </li>
+                </ul>
+                <div class="text-center d-none d-md-inline">
+                    <button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button>
+                </div>
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+                    <div class="container-fluid">
+                        <div class="float-left">
+                            <h4 class="mt-4">
+                                Hey, {{user.first_name}}{{' '}}{{user.last_name}}
+                            </h4>
+                        </div>
+                        <ul class="nav navbar-nav flex-nowrap ml-auto">
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow">
+                                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
+                                        href="#"><span
+                                            class="d-none d-lg-inline mr-2 text-gray-600 small">{{user.username}}</span><i
+                                            class="fas fa-user rounded-circle" style="color: black;"></i></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in">
+
+                                        <a class="dropdown-item" href="logout"><i
+                                                class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Co-ordinator Dashboard</h1>
+                    </div>
+                    <!-- Content Row -->
+
+                </div>
+                <div class="container-fluid">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Completed Tasks</h6>
+                        </div>
+                        <div class="card-body">
+
+                            {% for task in tasks %}
+                            {% if user.username == task.username %}
+                            {% if task.status == True %}
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card border-left-success">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-primary">
+                                                    {{task.task_title}}{{' '}}<small>({{task.first_name}}{{' '}}{{task.last_name}})
+                                                    </small></h5>
+                                                <p class="card-text">
+                                                    {{task.task_description}}
+                                                </p>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <p class="card-text">
+                                                            Satrt Date : {{task.start_date}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="card-text">
+                                                            End Date : {{task.start_date}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <p class="card-text">
+                                                            End Date : {{task.end_time}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p class="card-text">
+                                                            End Time : {{task.end_time}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+
+                            <footer class="bg-white sticky-footer">
+                                <div class="container my-auto">
+                                    <div class="text-center my-auto copyright">
+                                        <span>Copyright © EventVIP 2020</span>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i
+                                class="fas fa-angle-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright">
+                        <span>Copyright © EventVIP 2020</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+
+</body>
+
+
+</html>

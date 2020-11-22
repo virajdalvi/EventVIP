@@ -165,7 +165,7 @@
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Events</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tasks</h1>
 
                     </div>
                 </div>
@@ -173,51 +173,96 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">My Event</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">My Tasks</h6>
                         </div>
                         <div class="card-body">
-                            {% for event in events %}
-                            {% if event.user_id == current_user.id %}
-                            <div class="card">
-                                <div class="card-body">
-                                    <h2 class="card-title" style="color: black;">{{event.event_name}}</h2>
-                                    <h6>{{event.event_category}}</h6>
-                                    <h6>{{event.event_type}}</h6>
-                                    <i class="fas fa-calendar-day my-1" data-toggle="tooltip" data-placement="top"
-                                        title="Share this post"></i>
-                                    {{event.event_date}}
-                                    <i class="fas fa-clock my-1" data-toggle="tooltip" data-placement="top"
-                                        title="I like it"></i>
-                                    {{event.event_time}}
-                                    <br>
-                                    <br>
-                                    <p class="card-text">{{event.event_description}}</p>
-                                    <p class="mt-4">
-                                        <a class="btn btn-success" href="{{event.event_website}}">Event Website</a>
-                                    </p>
+                            <div id="accordion">
+                                {% for event in events %}
+                                {% if event.user_id == current_user.id %}
+                                <div class="card">
+                                    <div class="card-header" role="tab" id="{{event.event_name}}+ head">
+                                        <h3 class="mb-0">
+                                            <a data-toggle="collapse" data-target=#{{event.event_name}}
+                                                class="text-primary">
+                                                {{event.event_name}}<i
+                                                    class="fas fa-sort-down float-right text-primary"></i>
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="collapse" id={{event.event_name}} data-parent="#accordion">
+                                        {% for task in tasks %}
+                                        {% if user.id == task.user_id %}
+                                        {% if event.id == task.event_id %}
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="card border-left-primary">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title text-primary">
+                                                                {{task.task_title}}{{' '}}<small>({{task.first_name}}{{' '}}{{task.last_name}})
+                                                                </small></h5>
+                                                            <p class="card-text">
+                                                                {{task.task_description}}
+                                                            </p>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <p class="card-text">
+                                                                        Satrt Date : {{task.start_date}}
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <p class="card-text">
+                                                                        End Date : {{task.end_date}}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <p class="card-text">
+                                                                        Start Time : {{task.start_time}}
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <p class="card-text">
+                                                                        End Time : {{task.end_time}}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <a href="{% url 'etask' task.pk %}"
+                                                                class="btn btn-warning btn-sm float-right"
+                                                                role="button">Edit</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
                                 </div>
+                                {% endif %}
+                                {% endfor %}
                             </div>
-                            <br>
-                            {% endif %}
-                            {% endfor %}
+                            <footer class="bg-white sticky-footer">
+                                <div class="container my-auto">
+                                    <div class="text-center my-auto copyright">
+                                        <span>Copyright © EventVIP 2020</span>
+                                    </div>
+                                </div>
+                            </footer>
                         </div>
+                        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i
+                                class="fas fa-angle-up"></i>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <footer class="bg-white sticky-footer">
-                <div class="container my-auto">
-                    <div class="text-center my-auto copyright">
-                        <span>Copyright © EventVIP 2020</span>
-                    </div>
-                </div>
-            </footer>
-        </div>
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-    <script src="{% static 'js/theme.js' %}"></script>
+                    <script src="{% static 'js/jquery.min.js' %}"></script>
+                    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+                    <script src="{% static 'js/theme.js' %}"></script>
+
 </body>
 
 </html>

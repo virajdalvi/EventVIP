@@ -30,21 +30,21 @@
 
 <body>
   <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div class="container"><a class="navbar-brand logo" href="/">EventVIP</a><button data-toggle="collapse"
+    <div class="container"><a class="navbar-brand logo" href="/">Brand</a><button data-toggle="collapse"
         class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
           class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navcol-1">
         <ul class="nav navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="dashboard">Leader</a></li>
-          <li class="nav-item"><a class="nav-link" href="dashboard/cdashboard">Co-ordinator</a></li>
+          <li class="nav-item"><a class="nav-link " href="dashboard">Leader</a></li>
+          <li class="nav-item"><a class="nav-link active" href="dashboard/cdashboard">Co-ordinator</a></li>
 
         </ul>
       </div>
     </div>
   </nav>
   <br><br><br><br><br><br>
-  <form action='login' method='post'>
+  <form action='clogin' method='post'>
     {% csrf_token %}
     <section class="block-login">
       <div class="container">
@@ -55,7 +55,7 @@
           <div class="col-12 col-md-10 col-lg-6 mt-4 mt-lg-0 ml-auto mr-auto ml-lg-auto text-left">
             <div class="row">
               <div class="col">
-                <h1>Log In</h1>
+                <h1>Log In &nbsp;<small>(Coordinators)</small></h1>
               </div>
             </div>
             <div class="row">
