@@ -348,3 +348,8 @@ def completedtasks(request):
     teams = Cteam.objects.all()
     current_user = request.user
     return render(request, 'completedtasks.html', {'tasks': tasks, 'events': events, 'current_user': current_user, 'teams': teams, 'members': members})
+
+
+def clogout(request):
+    auth.logout(request)
+    return redirect('/')
