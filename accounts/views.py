@@ -37,6 +37,22 @@ def register(request):
             if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username taken')
                 return redirect('register')
+            if (any(i.isdigit() for i in first_name)) == True:
+                messages.info(
+                    request, 'First Name cannot contain number or special characters')
+                return redirect('cregister')
+            if (any(j.isdigit() for j in last_name)) == True:
+                messages.info(
+                    request, 'Last Name cannot contain number or special characters')
+                return redirect('cregister')
+            if (first_name.isalpha()) == False:
+                messages.info(
+                    request, 'First Name cannot contain number or special characters')
+                return redirect('register')
+            if (last_name.isalpha()) == False:
+                messages.info(
+                    request, 'Last Name cannot contain number or special characters')
+                return redirect('register')
             if User.objects.filter(username='').exists():
                 messages.info(request, 'Username is empty')
                 return redirect('register')
@@ -93,6 +109,14 @@ def cregister(request):
         if password1 == password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username taken')
+                return redirect('cregister')
+            if (any(i.isdigit() for i in first_name)) == True:
+                messages.info(
+                    request, 'First Name cannot contain number or special characters')
+                return redirect('cregister')
+            if (any(j.isdigit() for j in last_name)) == True:
+                messages.info(
+                    request, 'Last Name cannot contain number or special characters')
                 return redirect('cregister')
             if User.objects.filter(username='').exists():
                 messages.info(request, 'Username is empty')
