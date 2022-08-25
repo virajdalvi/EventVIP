@@ -1,5 +1,5 @@
 from django.urls import path
-from django.conf.urls import url
+from django.urls import re_path as url
 from . import views
 from dashboard.views import devent
 from .views import *
