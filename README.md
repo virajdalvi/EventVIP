@@ -56,4 +56,22 @@ Here you can check the status of the tasks which are assigned to the coordinator
 
 <img src="Project Screenshots/CheckTasks.jpg">
 
+### Promotion
+
+Here your events will be listed with other events in the city and this will be visible to all the individuals which includes your event information and a button which directly takes user to your official website
+
+<img src="Project Screenshots/Promotion.jpg">
+
 ## Coordinator
+
+### Co-ordinator's Dashboard
+
+Here the coordinators can see their tasks and update the event head about the completion of the task.
+
+<img src="Project Screenshots/Co-ordinator.Dashboard.jpg">
+
+### Task Completion
+
+As the task is completed it will be displayed as done on Event Head’s Dashboard and he willknow about the completion status of the task
+
+<img src="Project Screenshots/TasksDone.jpg">
