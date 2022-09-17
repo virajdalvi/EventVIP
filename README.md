@@ -46,10 +46,12 @@ Here you can add your coordinators/members to your team with their skills and pr
 
 Here you can assign tasks to coodrinatores with the information about the tasks, deadlines.
 
-<img src="Project Screenshots/Tasks.png>
+<img src="Project Screenshots/Tasks.png">
 
 ### Check Status
 
 Here you can check the status of the tasks which are assigned to the coordinators
 
-<img src="Project Screenshots/CheckTasks.jpg>
+<img src="Project Screenshots/CheckTasks.jpg">
+
+## Coordinator
