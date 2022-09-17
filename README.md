@@ -2,13 +2,15 @@
 
 All in one Event Management Solution which covers the aspects of event management such as Task Management, Team Management & Promotion made using Django, HTML, CSS, Javascript, Postgressql.
 
-# Abstract
+## Highlights
 
-EventVIP being the Event Management system provides them the tools because which they can handle their events smoothly. In this web app, Event Head can create their events, teams and he can even assign descriptive tasks to every individual team member within just a few clicks.
+- Event Head can create their events, teams and he/she can even assign descriptive tasks to every individual team member within just a few clicks.
 
-EventVIP has sections for coordinators also where they will get their tasks after logging into the app this helps them in managing their all tasks after completion of tasks the coordinator will confirm on same webapp and the status of the task will be update on event head's dashboard automatically. The EventVIP also gives the option of promotion; from promotion tab your event will be seen by other individuals on the platform.
+- EventVIP has sections for coordinators also where they will get their tasks after completion of tasks they can update the status which will be notified to the heads.
 
-EventVIP is built to bring the efficiency in the workflow of the events. By the usage of EventVIP one can save a lot of time and focus only on work.management.
+- The EventVIP also gives the option of promotion; from promotion tab your event will be seen by other individuals on the platform.
+
+- EventVIP is built to bring the efficiency in the workflow of the events.
 
 ## Homepage
 
